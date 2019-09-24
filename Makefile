@@ -11,7 +11,7 @@ LIB 	= fractol.h
 
 MYLIB	= libft_printf/libftprintf.a
 
-SRC		= fractol.c\
+SRC		= main.c\
 		
 
 LIBS_DIR = ./includes/
@@ -33,7 +33,7 @@ mkdir:
 
 $(NAME): $(OBJF) mylib
 	@$(GCC) $(OGL) $(FLAG) $(OBJF) $(MYLIB) -o  $(NAME) 
-	@echo "\033[32mFDF Builded\033[39m"
+	@echo "\033[32mFractol Builded\033[39m"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@$(GCC) $(FLAG) -c $< -o $@ -g

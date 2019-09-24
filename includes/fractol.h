@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmartyny <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/28 14:23:58 by pmartyny          #+#    #+#             */
-/*   Updated: 2019/03/28 14:24:00 by pmartyny         ###   ########.fr       */
+/*   Created: 2019/09/24 10:32:19 by pmartyny          #+#    #+#             */
+/*   Updated: 2019/09/24 10:32:22 by pmartyny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,20 @@
 
 # define WIDTH 1000
 # define HEIGHT 1000
+# define MENU 500
 
 # define ERROR(x) { ft_printf(x); exit(0); }
 
-
+typedef struct	s_fractol
+{
+	void	*mlx;
+	void	*win;
+	void	*image;
+	int		*imageBuf;
+	int		bits_per_pixel;
+	int		size_line;
+	int		endian;
+}				t_fractol;
 
 
 #endif
