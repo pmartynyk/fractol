@@ -93,11 +93,17 @@ int ft_take_fractal(t_fractol *fractol);
 //fractals.c
 int		ft_mandelbrot(t_fractol *fractol);
 int		ft_julia(t_fractol *fractol);
+int		ft_tricorn(t_fractol *fractol);
+int		ft_burningship(t_fractol *fractol);
+
 
 //init.c
 void ft_mlx_init(t_fractol *fractol);
 void ft_init(t_fractol *fractol);
 void ft_init_julia(t_fractol *fractol);
+
+//mouse.c
+int			ft_mouse_scroll(int key, int x, int y, t_fractol *fractol);
 
 
 

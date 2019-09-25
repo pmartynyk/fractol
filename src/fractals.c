@@ -39,3 +39,35 @@ int		ft_julia(t_fractol *fractol)
 		return (0);
 	return (1);
 }
+
+int		ft_tricorn(t_fractol *fractol)
+{
+
+    double z_re_sq;
+    double z_im_sq;
+
+    z_re_sq = fractol->calc.z_re * fractol->calc.z_re;
+    z_im_sq = fractol->calc.z_im * fractol->calc.z_im;
+    fractol->calc.z_im = -2.0 * fractol->calc.z_re * fractol->calc.z_im + fractol->calc.c_im;
+    fractol->calc.z_re = z_re_sq - z_im_sq + fractol->calc.c_re;
+    if (z_im_sq + z_re_sq > 4)
+        return (0);
+    return (1);
+
+}
+
+int		ft_burningship(t_fractol *fractol)
+{
+
+    double z_re_sq;
+    double z_im_sq;
+
+    z_re_sq = fractol->calc.z_re * fractol->calc.z_re;
+    z_im_sq = fractol->calc.z_im * fractol->calc.z_im;
+    fractol->calc.z_im = -2.0 * fabs(fractol->calc.z_re * fractol->calc.z_im) + fractol->calc.c_im;
+    fractol->calc.z_re = z_re_sq - z_im_sq + fractol->calc.c_re;
+    if (z_im_sq + z_re_sq > 4)
+        return (0);
+    return (1);
+
+}

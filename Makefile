@@ -15,7 +15,8 @@ SRC		= main.c\
 		draw.c\
 		additional.c\
 		fractals.c\
-		init.c
+		init.c\
+		mouse.c
 		
 
 LIBS_DIR = ./includes/

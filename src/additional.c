@@ -16,7 +16,7 @@ void	ft_usage(t_fractol *fractol)
 {
 	free(fractol);
 	ft_printf("Usage:	./fractol (fractol name)\n");
-	ft_printf("Fractal's: Mandelbrot; Julia\n");
+	ft_printf("Fractal's: Mandelbrot; Julia; Tricorn; Burningship\n");
 	exit(0);
 }
 
@@ -48,5 +48,9 @@ int ft_take_fractal(t_fractol *fractol)
 		return (ft_mandelbrot(fractol));
 	else if (!ft_strcmp(fractol->name, "Julia"))
 		return (ft_julia(fractol));
+	else if (!ft_strcmp(fractol->name, "Tricorn"))
+		return (ft_tricorn(fractol));
+	else if (!ft_strcmp(fractol->name, "Burningship"))
+		return (ft_burningship(fractol));
 	return (0);
 }
