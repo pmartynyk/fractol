@@ -3,7 +3,7 @@ NAME	= fractol
 
 GCC 	= gcc
 
-FLAG	= -Wall -Wextra -Werror
+FLAG	= #-Wall -Wextra -Werror
 
 OGL = -L/usr/local/lib -lmlx -framework OpenGL -framework AppKit
 
@@ -12,6 +12,10 @@ LIB 	= fractol.h
 MYLIB	= libft_printf/libftprintf.a
 
 SRC		= main.c\
+		draw.c\
+		additional.c\
+		fractals.c\
+		init.c
 		
 
 LIBS_DIR = ./includes/

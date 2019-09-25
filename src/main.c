@@ -12,53 +12,42 @@
 
 #include "../includes/fractol.h"
 
-static int	ft_check_button(int button, t_fractol *fractol)
+static int ft_check_button(int button, t_fractol *fractol)
 {
+	// ft_printf("%d\n", button);
 	(void)fractol;
 	if (button == 53)
 		exit(0);
 	if (button == 17)
 		exit(0);
-	// if (button == NUM_PLUS)
-	// 	fdf->cam->step += 2;
-	// else if (button == NUM_MINUS)
-	// {
-	// 	fdf->cam->step -= 2;
-	// 	fdf->cam->step = (fdf->cam->step <= 0 ? 1 : fdf->cam->step);
-	// }
-	// else if (button == KEYDOWN)
-	// 	fdf->cam->setx += 5;
-	// else if (button == KEYLEFT)
-	// 	fdf->cam->sety -= 5;
-	// else if (button == KEYUP)
-	// 	fdf->cam->setx -= 5;
-	// else if (button == KEYRIGHT)
-	// 	fdf->cam->sety += 5;
-	// else
-	// 	ft_check_button2(button, fdf);
-	// ft_draw(fdf);
+	if (button == 48)
+		fractol->color_iterator++;
+	ft_threads(fractol);
 	return (0);
 }
 
-static int	ft_close(t_fractol *fractol)
+static int ft_close(t_fractol *fractol)
 {
 	(void)fractol;
 	exit(0);
 }
-
-static void ft_mlx_init(t_fractol *fractol)
+static void ft_check_name(t_fractol *fractol, char *name)
 {
-
-	fractol->mlx = mlx_init();
-	fractol->image = mlx_new_image(fractol->mlx, WIDTH, HEIGHT);
-	fractol->imageBuf = (int *)mlx_get_data_addr(fractol->image, &fractol->bits_per_pixel,
-								  &fractol->size_line, &fractol->endian);
-	fractol->win = mlx_new_window(fractol->mlx, WIDTH + MENU, HEIGHT, "FRACTOL");
+	if (!ft_strcmp(name, "Mandelbrot"))
+		fractol->name = name;
+	else if (!ft_strcmp(name, "Julia"))
+		fractol->name = name;
+	else
+		ft_usage(fractol);
+	if (!ft_strcmp(fractol->name, "Julia"))
+		ft_init_julia(fractol);
+	else
+		ft_init(fractol);
+	ft_threads(fractol);
 }
 
 int main(int argc, char **argv)
 {
-	(void)argv;
 	t_fractol *fractol;
 
 	if (argc == 2)
@@ -66,9 +55,9 @@ int main(int argc, char **argv)
 		if (!(fractol = (t_fractol *)malloc(sizeof(t_fractol))))
 			exit(0);
 		ft_mlx_init(fractol);
+		ft_check_name(fractol, argv[1]);
 		mlx_hook(fractol->win, 2, 0, ft_check_button, fractol);
 		mlx_hook(fractol->win, 17, 0, ft_close, fractol);
-		// mlx_hook(fractol->win, 4, 0, ft_mouse_move, fractol);
 		mlx_loop(fractol->mlx);
 	}
 	else
