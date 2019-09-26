@@ -3,9 +3,9 @@ NAME	= fractol
 
 GCC 	= gcc
 
-FLAG	= #-Wall -Wextra -Werror
+FLAG	= -Wall -Wextra -Werror
 
-OGL = -L/usr/local/lib -lmlx -framework OpenGL -framework AppKit
+OGL 	= -L/usr/local/lib -lmlx -framework OpenGL -framework AppKit
 
 LIB 	= fractol.h
 

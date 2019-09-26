@@ -20,29 +20,29 @@ void	ft_usage(t_fractol *fractol)
 	exit(0);
 }
 
-void pixel_put(t_fractol *fractol, int x, int y, int color)
+void	pixel_put(t_fractol *fractol, int x, int y, int color)
 {
 	if (x < WIDTH && x >= 0 && y < HEIGHT && y >= 0)
-		fractol->imageBuf[y * WIDTH + x] = color;
+		fractol->image_buf[y * WIDTH + x] = color;
 }
 
-int get_color(int color, t_fractol *fractol)
+int		get_color(int color, t_fractol *fractol)
 {
-	unsigned int rgb;
-	unsigned char r;
-	unsigned char g;
-	unsigned char b;
+	unsigned int	rgb;
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
 
 	if (color == ITERATIONS)
 		return (0);
-	r = color * 1 * fractol->color_iterator;
-	g = color * 2 * fractol->color_iterator;
-	b = color * 5 * fractol->color_iterator;
+	r = color * 5 * fractol->color_iterator;
+	g = color * 10 * fractol->color_iterator;
+	b = color * 20 * fractol->color_iterator;
 	rgb = (r << 16) + (g << 8) + b;
 	return (rgb);
 }
 
-int ft_take_fractal(t_fractol *fractol)
+int		ft_take_fractal(t_fractol *fractol)
 {
 	if (!ft_strcmp(fractol->name, "Mandelbrot"))
 		return (ft_mandelbrot(fractol));
