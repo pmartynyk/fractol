@@ -33,11 +33,14 @@ int				ft_mouse_scroll(int key, int x, int y, t_fractol *fractol)
 		inter = 1.0 / 1.1;
 	else if (key == 5)
 		inter = 1.0 * 1.1;
-	mousere = (double)x / (WIDTH /
-	(fractol->calc.re_max - fractol->calc.re_min)) + fractol->calc.re_min;
-	mouseim = (double)y / (HEIGHT /
-	(fractol->calc.im_max - fractol->calc.im_min)) + fractol->calc.im_min;
-	ft_interpol(fractol, mousere, mouseim, inter);
-	ft_threads(fractol);
+	if (key == 4 || key == 5)
+	{
+		mousere = (double)x / (WIDTH /
+		(fractol->calc.re_max - fractol->calc.re_min)) + fractol->calc.re_min;
+		mouseim = (double)y / (HEIGHT /
+		(fractol->calc.im_max - fractol->calc.im_min)) + fractol->calc.im_min;
+		ft_interpol(fractol, mousere, mouseim, inter);
+		ft_threads(fractol);
+	}
 	return (0);
 }

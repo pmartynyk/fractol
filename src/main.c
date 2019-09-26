@@ -35,8 +35,6 @@ static int	ft_check_button(int button, t_fractol *fractol)
 {
 	if (button == 53)
 		exit(0);
-	if (button == 17)
-		exit(0);
 	if (button == 48)
 		fractol->color_iterator++;
 	else if (button == 15)
